@@ -16,9 +16,17 @@ const app = Vue.createApp({
     };
   },
   methods: {
+    playMusic() {
+      const music = document.getElementById("music");
+      music.volume = 1.0;
+      music.play().catch(function (error) {
+        console.error("Không thể phát nhạc: ", error);
+      });
+    },
     showMessage() {
       const messageElement = document.getElementById("message");
       messageElement.style.display = "inline-block";
+      this.playMusic();
     },
     createHearts() {
       const heartSize = 50;
