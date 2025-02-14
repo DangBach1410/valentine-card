@@ -4,8 +4,8 @@ app.component("valentine-card", {
     `<div class="container">
         <h2>Bạn có đang độc thân không? 💕</h2>
         <div class="choice-buttons">
-            <button class="btn-single" @click="modeSingle">Tôi Độc Thân 💔</button>
-            <button class="btn-taken" @click="modeTaken">Tôi Không Độc Thân ❤️</button>
+            <button class="btn-single" @click="modeSingle">Tôi Độc Thân 🤍</button>
+            <button class="btn-taken" @click="modeTaken">Tôi Đã Có Nửa Kia ❤️</button>
         </div>
     </div>`,
     methods: {

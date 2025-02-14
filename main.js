@@ -30,15 +30,29 @@ const app = Vue.createApp({
     },
     createHearts() {
       const heartSize = 50;
-      for (let i = 0; i < 15; i++) {
-        let heart = document.createElement("div");
-        heart.classList.add("hearts");
-        heart.innerHTML = "❤️";
-        heart.style.left = Math.random() * (window.innerWidth - heartSize) + "px";
-        heart.style.top = Math.random() * (window.innerHeight - heartSize) + "px";
-        document.body.appendChild(heart);
-        heart.style.animationDuration = Math.random() * 2 + 1 + "s";
-      }
+            
+            for (let i = 0; i < 15; i++) {
+                let heart = document.createElement("div");
+                heart.classList.add("hearts");
+                heart.innerHTML = "❤️";
+                
+                // Random position across the full screen width
+                const x = Math.random() * (window.innerWidth - heartSize);
+                // Start from bottom of the screen
+                const y = -heartSize;
+                
+                heart.style.left = x + "px";
+                heart.style.top = y + "px";
+                
+                document.body.appendChild(heart);
+                // Random animation duration between 2-4 seconds
+                heart.style.animationDuration = (Math.random() * 2 + 2) + "s";
+                // Remove heart element after animation
+                heart.addEventListener('animationend', () => heart.remove());
+            }
+
+            // Create new hearts every few seconds
+            setTimeout(this.createHearts, 3000);
     },
     changeToSingle() {
       this.toggle = false;
