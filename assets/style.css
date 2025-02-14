@@ -47,10 +47,11 @@ p {
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 90%;
-    width: 400px;
+    max-width: 100%;
+    width: 600px;
     align-items: center;
     animation: fadeIn 1.2s ease-in-out;
+    z-index: 2;
 }
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
@@ -74,7 +75,7 @@ p {
 }
 .message {
     display: none;
-    font-size: 16px;
+    font-size: 30px;
     color: #d63384;
     font-family: 'Dancing Script', cursive;
     font-weight: normal;
@@ -108,14 +109,30 @@ p {
 .hearts {
     position: fixed;
     color: #ff4d79;
-    font-size: 40px;
-    animation: floatUp 2s ease-out infinite;
+    font-size: 50px;
+    animation: fallingHearts 3s linear forwards;
     opacity: 1;
+    pointer-events: none;
+    z-index: 1;
 }
-@keyframes floatUp {
-    from { transform: translateY(0); }
-    to { transform: translateY(-150px); opacity: 0; }
+
+@keyframes fallingHearts {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
 }
+
 button {
     background-color: #d63384;
     color: white;
@@ -142,19 +159,19 @@ button:hover {
 }
 
 .btn-single {
-    background-color: #fe81a0;
+    background-color: #f097c8;
 }
 
 .btn-single:hover {
-    background-color: #f5a1b4;
+    background-color: #dc6daa;
 }
 
 .btn-taken {
-    background-color: #6a0572;
+    background-color: #f097c8;
 }
 
 .btn-taken:hover {
-    background-color: #8e0e99;
+    background-color: #dc6daa;
 }
 @media (max-width: 768px) {
     h2 {
